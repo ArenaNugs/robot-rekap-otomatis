@@ -4,7 +4,7 @@ from google_play_scraper import Sort, reviews
 
 # 1. Konfigurasi
 app_id_target = 'id.meteor.alfamind'
-url_google_sheets = "https://script.google.com/macros/s/AKfycbwzBYtPJMXExkkclUIOcCoeDXjmuVypbRutfazsQc4D7qi6X9SKTJbx5_Q1cGvTftxe/exec" # Isi kembali dengan URL milikmu
+url_google_sheets = os.environ.get('URL_GOOGLE_SHEETS') # Isi kembali dengan URL milikmu
 
 print("Robot sedang bekerja menganalisis ulasan...")
 
