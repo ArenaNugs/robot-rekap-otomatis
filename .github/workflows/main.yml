@@ -2,10 +2,9 @@ name: Robot Rekap Harian
 
 on:
   schedule:
-    # Ini adalah instruksi waktu (Cron Job). 
-    # 0 1 * * * artinya jam 01:00 UTC (Sama dengan jam 08:00 WIB)
+    # Berjalan otomatis setiap jam 08:00 WIB (01:00 UTC)
     - cron: '0 1 * * *'
-  workflow_dispatch: # Ini tombol agar kita bisa tes jalan manual kapan saja
+  workflow_dispatch: # Tombol untuk menjalankan manual
 
 jobs:
   build:
@@ -23,4 +22,7 @@ jobs:
         run: pip install google_play_scraper requests
 
       - name: Jalankan Robot Rekap
+        # DI SINI PERUBAHANNYA: Menghubungkan Brankas GitHub ke Python
+        env:
+          URL_GOOGLE_SHEETS: ${{ secrets.URL_GOOGLE_SHEETS }}
         run: python main.py
