@@ -1,0 +1,26 @@
+name: Robot Rekap Harian
+
+on:
+  schedule:
+    # Ini adalah instruksi waktu (Cron Job). 
+    # 0 1 * * * artinya jam 01:00 UTC (Sama dengan jam 08:00 WIB)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Ini tombol agar kita bisa tes jalan manual kapan saja
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ambil Kode dari GitHub
+        uses: actions/checkout@v3
+
+      - name: Siapkan Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instal Alat Pencapit
+        run: pip install google_play_scraper requests
+
+      - name: Jalankan Robot Rekap
+        run: python main.py
