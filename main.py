@@ -1,10 +1,11 @@
+import os       # <--- TAMBAHKAN BARIS INI
 import requests
 import json
 from google_play_scraper import Sort, reviews
 
 # 1. Konfigurasi
 app_id_target = 'id.meteor.alfamind'
-url_google_sheets = os.environ.get('URL_GOOGLE_SHEETS') # Isi kembali dengan URL milikmu
+url_google_sheets = os.environ.get('URL_GOOGLE_SHEETS') 
 
 print("Robot sedang bekerja menganalisis ulasan...")
 
